@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username"><b>Username </b></label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="validateLogin()">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Example: Check if username is 'demo' and password is 'password'
+            if (username === 'admin' && password === '1234') {
+                // Redirect to another webpage after successful login
+                window.location.href = 'hotel.html';
+            } else {
+                alert('Invalid login credentials. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Booking</title>
+       <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        label {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: calc(50% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1>Hotel Room Booking</h1>
+    </header>
+
+    <section>
+        <form id="bookingForm">
+             <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">phone number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+            <label for="age">age:</label>
+            <input type="number" id="age" name="age" required>
+            
+             <label for="check-in-date">Check-in Date:</label>
+            <input type="date" id="check-in-date" required>
+
+            <label for="check-out-date">Check-out Date:</label>
+            <input type="date" id="check-out-date" required>
+
+            <label for="room-type">Room Type:</label>
+            <select id="room-type" required>
+                <option value="single">Single Room</option>
+                <option value="double">Double Room</option>
+                <option value="suite">Suite</option>
+            </select>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" min="1" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+
+        <div id="successMessage" style="display: none; color: green; margin-top: 10px;">
+            Booking successful! Thank you for choosing our hotel.
+        </div>
+    </section>
+<section class="booking-history">
+        <h2>Booking History</h2>
+
+        <!-- Placeholder for displaying booking history -->
+        <div class="booking-details">
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> john@example.com</p>
+            <p><strong>Room Type:</strong> Double Room</p>
+            <p><strong>Check-in Date:</strong> 2023-12-01</p>
+            <p><strong>Check-out Date:</strong> 2023-12-05</p>
+        </div>
+
+        <!-- Add more booking details as needed -->
+    </section>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            // Prevent the form from submitting and refreshing the page
+            event.preventDefault();
+
+            // Simulate a successful booking (in a real-world scenario, this would be handled by the server)
+            // You would typically make an AJAX request to the server to handle the booking process
+            // and show the success message based on the server response.
+            // For simplicity, I'm just showing a simple alert here.
+            alert('Booking successful! Thank you for choosing our hotel.');
+
+            // Display the success message
+            document.getElementById('successMessage').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
