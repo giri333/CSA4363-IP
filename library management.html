@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username"><b>Username </b></label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="validateLogin()">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Example: Check if username is 'demo' and password is 'password'
+            if (username === 'admin' && password === '1234') {
+                // Redirect to another webpage after successful login
+                window.location.href = 'as.html';
+            } else {
+                alert('Invalid login credentials. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function showSuccessMessage(message) {
+            var successMessage = document.getElementById('success-message');
+            successMessage.innerHTML = message;
+            successMessage.style.display = 'block';
+
+            // Hide the message after 3 seconds (3000 milliseconds)
+            setTimeout(function () {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+        
+        function handleAddBookFormSubmit(event) {
+            // Prevent the form from submitting the traditional way
+            event.preventDefault();
+
+            // You can add additional logic here to handle the form data
+            // For now, just display the success message
+            showSuccessMessage('Book added successfully');
+        }
+
+        function handlemakepaymentFormSubmit(event) {
+            // Prevent the form from submitting the traditional way
+            event.preventDefault();
+
+            // You can add additional logic here to handle the form data
+            // For now, just display the success message
+            showSuccessMessage('payment successful');
+        }
+
+        function handleretunbookFormSubmit(event) {
+            // Prevent the form from submitting the traditional way
+            event.preventDefault();
+
+            // You can add additional logic here to handle the form data
+            // For now, just display the success message
+            showSuccessMessage('book return successful');
+        }
+
+        function handlecancelbookFormSubmit(event) {
+            // Prevent the form from submitting the traditional way
+            event.preventDefault();
+
+            // You can add additional logic here to handle the form data
+            // For now, just display the success message
+            showSuccessMessage('cancel book successful');
+        }
+
+        function handleordernewbooksFormSubmit(event) {
+            // Prevent the form from submitting the traditional way
+            event.preventDefault();
+
+            // You can add additional logic here to handle the form data
+            // For now, just display the success message
+            showSuccessMessage('book added  successfully');
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Library Management System</h1>
+
+    <!-- Success Message -->
+    <div id="success-message" class="success-message" style="display: none;"></div>
+
+    <!-- Add Book Form -->
+    <form action="/add_book" method="post" onsubmit="handleAddBookFormSubmit(event)">
+        <h2>Add Book</h2>
+        <label for="book_title">Title:</label>
+        <input type="text" id="book_title" name="book_title" required>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+        <button type="submit">Add Book</button>
+    </form>
+
+    <!-- Payment Form -->
+    <form action="/make_payment" method="post" onsubmit="handlemakepaymentFormSubmit(event)">
+        <h2>Make Payment</h2>
+        <label for="member_id">Member ID:</label>
+        <input type="text" id="member_id" name="member_id" required>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <button type="submit">Make Payment</button>
+    </form>
+
+    <!-- Return Book Form -->
+    <form action="/return_book" method="post" onsubmit="handleretunbookFormSubmit(event)">
+        <h2>Return Book</h2>
+        <label for="book_id_return">Book ID:</label>
+        <input type="text" id="book_id_return" name="book_id_return" required>
+
+        <button type="submit">Return Book</button>
+    </form>
+
+    <!-- Cancel Book Form -->
+    <form action="/cancel_book" method="post" onsubmit="handlecancelbookFormSubmit(event)">
+        <h2>Cancel Book</h2>
+        <label for="book_id_cancel">Book ID:</label>
+        <input type="text" id="book_id_cancel" name="book_id_cancel" required>
+        <button type="submit">Cancel Book</button>
+    </form>
+
+    <!-- Order New Books Form -->
+    <form action="/order_books" method="post" onsubmit="handleordernewbooksFormSubmit(event)">
+        <h2>Order New Books</h2>
+        <label for="new_books">Books to Order:</label>
+        <textarea id="new_books" name="new_books" required></textarea>
+        <button type="submit">Order Books</button>
+    </form>
+
+    <!-- Books Record -->
+    <h2>Books Available</h2>
+    <!-- Display the list of books from the database -->
+
+</body>
+</html>
